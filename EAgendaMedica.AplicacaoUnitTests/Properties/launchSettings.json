@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EAgendaMedica.AplicacaoUnitTests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

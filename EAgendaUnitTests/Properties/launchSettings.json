@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "EAgendaUnitTests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -10,11 +10,11 @@
             var configuration = builder.Build();
 
             string connectionString = args.Any(arg => arg == "Testing") ?
-                 "SqlServerTests" : "SqlData";
+                 "SqlServerTests" : "Postgres";
 
             var optionsBuilder = new DbContextOptionsBuilder<EAgendaMedicaDBContext>();
 
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString(connectionString));
+            optionsBuilder.UseNpgsql(configuration.GetConnectionString(connectionString));
 
             return new EAgendaMedicaDBContext(optionsBuilder.Options);
 

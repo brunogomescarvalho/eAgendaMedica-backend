@@ -23,11 +23,11 @@ namespace eAgendaWebApi.Configs
         public static void InjetarDependencias(this IServiceCollection service, IConfiguration configuration)
         {
 
-            var connectionString = configuration.GetConnectionString("SqlData")!;
+            var connectionString = configuration.GetConnectionString("Postgres")!;
 
             service.AddDbContext<IContextoPersistencia, EAgendaMedicaDBContext>(optionsBuilder =>
             {
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseNpgsql(connectionString);
             });
 
             service.AddTransient<ServicoCirurgia>();

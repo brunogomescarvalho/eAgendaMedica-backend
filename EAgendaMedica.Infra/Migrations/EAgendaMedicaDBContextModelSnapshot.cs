@@ -338,7 +338,7 @@ namespace EAgendaMedica.Infra.Migrations
                     b.HasOne("EAgendaMedica.Dominio.ModuloAutenticacao.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
@@ -349,7 +349,7 @@ namespace EAgendaMedica.Infra.Migrations
                     b.HasOne("EAgendaMedica.Dominio.ModuloMedico.Medico", "Medico")
                         .WithMany("Consultas")
                         .HasForeignKey("MedicoId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EAgendaMedica.Dominio.ModuloAutenticacao.Usuario", "Usuario")

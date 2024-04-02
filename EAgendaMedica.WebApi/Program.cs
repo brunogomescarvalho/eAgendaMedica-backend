@@ -38,7 +38,7 @@ namespace EAgendaMedica.WebApi
 
             app.AtualizarBancoDeDados();
 
-          //  if (app.Environment.IsDevelopment())
+            if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();

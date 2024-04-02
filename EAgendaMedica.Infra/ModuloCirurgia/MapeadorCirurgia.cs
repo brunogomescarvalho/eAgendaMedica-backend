@@ -8,17 +8,16 @@ namespace EAgendaMedica.Infra.ModuloCirurgia
         public void Configure(EntityTypeBuilder<Cirurgia> builder)
         {
             builder.ToTable("TB_Cirurgia");
+
             builder.Property(c => c.Id).ValueGeneratedNever().IsRequired();
-            builder.Property(c => c.DataInicio).IsRequired();
+
+            builder.HasMany(c => c.Medicos)
+                .WithMany(c => c.Cirurgias)
+                .UsingEntity(c => c.ToTable("TB_Medico_TB_Cirurgia"));
+
             builder.Property(c => c.DuracaoEmMinutos).IsRequired();
             builder.Property(c => c.HoraInicio).HasColumnType("bigint").IsRequired();
-            builder.HasMany(c => c.Medicos)
-            .WithMany(c => c.Cirurgias)
-            .UsingEntity(c => c.ToTable("TB_Medico_TB_Cirurgia"));
-
-            //gambeta
-            foreach (var foreignKey in builder.Metadata.GetForeignKeys())
-                foreignKey.DeleteBehavior = DeleteBehavior.NoAction;
+            builder.Property(c => c.DataInicio).IsRequired();
         }
     }
 }

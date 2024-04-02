@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EAgendaMedica.Infra.Migrations
 {
     [DbContext(typeof(EAgendaMedicaDBContext))]
-    [Migration("20240401224333_migration_postgress")]
+    [Migration("20240402005348_migration_postgress")]
     partial class migration_postgress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -340,7 +340,7 @@ namespace EAgendaMedica.Infra.Migrations
                     b.HasOne("EAgendaMedica.Dominio.ModuloAutenticacao.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
@@ -351,7 +351,7 @@ namespace EAgendaMedica.Infra.Migrations
                     b.HasOne("EAgendaMedica.Dominio.ModuloMedico.Medico", "Medico")
                         .WithMany("Consultas")
                         .HasForeignKey("MedicoId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EAgendaMedica.Dominio.ModuloAutenticacao.Usuario", "Usuario")

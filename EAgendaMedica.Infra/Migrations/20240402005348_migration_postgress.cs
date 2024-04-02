@@ -173,7 +173,8 @@ namespace EAgendaMedica.Infra.Migrations
                         name: "FK_TB_Cirurgia_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,7 +223,8 @@ namespace EAgendaMedica.Infra.Migrations
                         name: "FK_TB_Consulta_TB_Medico_MedicoId",
                         column: x => x.MedicoId,
                         principalTable: "TB_Medico",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

@@ -12,11 +12,10 @@ services:
       - sqldata
 
   sqldata:
-    image: mcr.microsoft.com/mssql/server:2019-latest
+    image: postgres:14-alpine
     environment:
-      - SA_PASSWORD=agenda#2024
-      - ACCEPT_EULA=Y
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=agenda#2024
+      - POSTGRES_DB=eagenda
     ports:
-      - "1450:1433"
-
- 
+      - "5432:5432"
